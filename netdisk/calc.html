@@ -1,0 +1,23 @@
+<html>
+
+<head> 
+    <title>calc</title>
+</head>
+<body>
+    <form action="muban.cgi" method="post" enctype="multipart/form-data">
+        <input type="text" name="num1" value="<TMPL_VAR name="num1"/>"/> + 
+        <input type="text" name="num2" value="<TMPL_VAR name="num2"/>"/> 
+        <input type="submit" name="subtn" value="="/> 
+        <label><TMPL_VAR name="num3"/></label> <br /><br />
+        <textarea name="txt1" style="width:80px;height:60px"></textarea>
+        <select name="job">
+            <option value="stu">学生</option>
+            <option value="eng">工程师</option>
+            <option value="tech">老师</option>
+        </select><br /><br />
+        <input type="file" name="file1" value="<TMPL_VAR name="filename"/>"/>
+        <input type="submit" name="upload" value="提交文件"/><br /><br />
+        <font color="red"><TMPL_VAR name="errorfile"/></font>
+    </form>
+</body>
+</html>

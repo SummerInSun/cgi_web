@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<meta name="renderer" content="webkit" /><!--让360默认以极速方式渲染-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/><!--使用最新的文档模式，所以默认在IE9下是quirks模式，太难看-->
+<link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="CSS/table.css" rel="stylesheet"/>
+
+<TITLE>教师列表</TITLE>
+</HEAD>
+<BODY style="background:#e6e6e6">
+
+    <div>
+        <form action="tech_mag.cgi" method="post">
+            <input type="hidden" name="action_id" value="request_addnew"/>
+            <table class="bordered">
+                <thead>
+                    <tr><td colspan="4"><input type="submit" class="btn btn-success" style="width:100px;height:50px;font-size:30px;" value="新增" name="TeacherAddNew"/></td></tr>
+                    <tr style="background:#1091f2"><td>姓名</td><td>性别</td><td>电话</td><td>条目</td></tr>
+                </thead>
+                <tbody>
+                    <TMPL_LOOP name="teachers">
+                        <tr><td><TMPL_VAR name="teacher_name" /></td><td><TMPL_VAR name="teacher_gender" /></td><td><TMPL_VAR name="teacher_phone" /></td><td><a href="tech_mag.cgi?action_id=request_edit&id=<TMPL_VAR name='ID' />">编辑</a>&nbsp;&nbsp;<a href="tech_mag.cgi?action_id=teacher_del&id=<TMPL_VAR name='ID' />">删除</a></td></tr>
+                    </TMPL_LOOP>
+                </tbody>
+            </table>
+        </form>
+    </div>    
+
+</BODY>
+</HTML>

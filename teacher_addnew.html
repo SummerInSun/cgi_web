@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<meta name="renderer" content="webkit" /><!--让360默认以极速方式渲染-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/><!--使用最新的文档模式，所以默认在IE9下是quirks模式，太难看-->
+<link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    div {width:300px;text-align:center;background:#e9e5e5;margin:0 auto}
+</style>
+
+<TITLE><TMPL_VAR name="mod_sel" /></TITLE>
+</HEAD>
+<BODY style="background:#e6e6d0">
+    <br />
+    <br />
+    <br />
+    <div class="text">
+        <form action="tech_mag.cgi" method="post">
+            <input type="hidden" name="action_id" value="<TMPL_VAR name='mod' />"/>
+            <input type="hidden" name="edit_id" value="<TMPL_VAR name='edit_id' />">
+            <table cellpadding="10">
+                <tr>
+                    <td valign="top"><font style="font-size:30px">姓名 :&nbsp;</font></td>
+                    <td><input type="text" name="Tadd_name" class="form-control" style="width:200px;height:40px;font-size:25px" value="<TMPL_VAR name='t_name' />"/><br /></td>
+                </tr>
+                <tr>
+                    <td valign="top"><font style="font-size:30px">性别 :&nbsp;</font></td>
+                    <td>
+                        <select class="form-control" name="tgender_select">
+                                <TMPL_VAR name='tgender_option' />
+                        </select>
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top"><font style="font-size:30px">电话 :&nbsp;</font></td>
+                    <td><input type="text" name="Tadd_phone" class="form-control" style="width:200px;height:40px;font-size:25px" value="<TMPL_VAR name='t_phone' />"/><br /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" name="Tadd_new_btn" class="btn btn-success" style="height:45px;width:85px;font-size:25px;text-align:center"/></td>
+                </tr>
+            </table>
+            <font color="red"><TMPL_VAR name='error' /></font>
+        </form>
+    </div>
+
+</BODY>
+</HTML>

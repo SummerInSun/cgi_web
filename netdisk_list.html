@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+    <meta name="renderer" content="webkit" /><!--让360默认以极速方式渲染-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/><!--使用最新的文档模式，所以默认在IE9下是quirks模式，太难看-->
+    <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="CSS/table.css" rel="stylesheet"/>
+<TITLE>文件列表</TITLE>
+</HEAD>
+<BODY>
+    
+    <div>
+        <form action="netdisk.cgi" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="action_id" value="file_addnew"/>
+            <table>
+                <tr>
+                    <td><a href="netdisk.cgi?action_id=file_flush"><input type="button" class="btn btn-success" style="width:140px;height:50px;font-size:30px;" value="刷新列表" name="btn_flush"/></a></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="submit" class="btn btn-success" style="width:70px;height:40px;font-size:20px;" value="上传" name="btn_upload"/></td>
+                    <td colspan="3"><input type="file" class="btn btn-success" name="file_upload" style="width:400px;height:40px;font-size:20px;"/></td>
+                </tr>
+            </table>
+            <table class="bordered">
+                <thead>
+                    <tr style="background:#1091f2"><td>文件名</td><td>文件大小</td><td>上传时间</td><td>上传人员</td><td>条目</td></tr>
+                </thead>
+                <tbody>
+                    <TMPL_LOOP name="files">
+                        <tr><td><a href="netdisk/<TMPL_VAR name='file_name' />"><TMPL_VAR name='file_name' /></a></td><td><TMPL_VAR name="file_size" /></td><td><TMPL_VAR name="file_time" /></td><td><TMPL_VAR name="file_owener" /></td><td><a href="netdisk.cgi?action_id=file_del&id=<TMPL_VAR name='file_id' />&del_name=<TMPL_VAR name='file_name' />">删除</a></td></tr>
+                    </TMPL_LOOP>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+</BODY>
+</HTML>
